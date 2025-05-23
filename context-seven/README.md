@@ -26,7 +26,13 @@ Context-Seven is a .NET implementation of the [Context7](https://github.com/upst
    dotnet build
    ```
 
-3. Configure in VS Code:
+3. Run the tests:
+
+   ```console
+   dotnet test
+   ```
+
+4. Configure in VS Code:
    - Create or update `.vscode/mcp.json` with:
 
    ```json
@@ -46,7 +52,7 @@ Context-Seven is a .NET implementation of the [Context7](https://github.com/upst
    }
    ```
 
-4. Start using in your AI coding assistant by calling the available tools:
+5. Start using in your AI coding assistant by calling the available tools:
    - `resolve-library-id`: Find Context7-compatible library IDs
    - `get-library-docs`: Get documentation for a specific library
 
@@ -79,6 +85,32 @@ The logging system uses a combination of:
 2. **Custom McpLogging**: A static helper class that logs all MCP tool operations
 
 This provides a complete picture of the server's operation for troubleshooting and auditing purposes.
+
+## Testing
+
+The project includes a comprehensive test suite using xUnit that covers all components:
+
+### Test Projects
+
+- **context-seven.Tests**: Contains all unit tests for the application
+
+### Test Coverage
+
+The tests cover:
+
+- **EchoTool**: Basic echo and reverse echo functionality
+- **Context7Tools**: 
+  - `ResolveLibraryId`: Tests for valid searches, empty results, and API errors
+  - `GetLibraryDocs`: Tests for documentation retrieval, parameter handling, and error conditions
+- **Context7Service**: Tests for API communication, response handling, and error conditions
+
+### Running Tests
+
+To run the tests, use the following command:
+
+```console
+dotnet test
+```
 
 ## How It Works
 
